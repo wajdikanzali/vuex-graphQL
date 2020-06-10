@@ -1,0 +1,32 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-scss"
+  ],
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-order"
+  ],
+  "rules": {
+    "function-name-case": [
+      "lower",
+      {
+        "ignoreFunctions": ["calculateRem"]
+      }
+    ],
+    "max-empty-lines": 2,
+    "number-leading-zero": "never",
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/properties-alphabetical-order": true,
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": ["font-smoothing"]
+      }
+    ],
+    "selector-list-comma-newline-after": "always-multi-line"
+  }
+}
