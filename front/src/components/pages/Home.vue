@@ -1,6 +1,5 @@
 <template name="home">
   <div>
-    <home-header class="mb-4" />
     <div class="bloc container p-3">
       <h2 v-text="'Bienvenue sur notre Platforme de E-magasine'" />
       <p
@@ -11,11 +10,9 @@
 </template>
 
 <script>
-import HomeHeader from '@/components/organisms/Header.vue';
 
 export default {
   components: {
-    HomeHeader,
   },
 };
 </script>

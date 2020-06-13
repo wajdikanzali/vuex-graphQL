@@ -1,13 +1,18 @@
 <template>
   <div id="app">
+    <home-header class="mb-4" />
     <router-view />
   </div>
 </template>
 
 <script>
+import HomeHeader from '@/components/organisms/Header.vue';
 
 export default {
   name: 'App',
+  components: {
+    HomeHeader,
+  },
 };
 </script>
 
