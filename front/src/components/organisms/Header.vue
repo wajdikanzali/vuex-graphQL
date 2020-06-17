@@ -26,6 +26,7 @@
 
 <script>
 import NavBar from '@/components/molecules/NavBar.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
@@ -41,14 +42,33 @@ export default {
     };
   },
   computed: {
+    ...mapGetters({
+      savedSources: 'sources/sources',
+    }),
     isSearchDisabled() {
-      return !Object.values(this.params).find((param) => param !== null);
+      console.log('this.params', this.params);
+      return Object.values(this.params).every((value) => (value === null || value === ''));
     },
+  },
+  mounted() {
+    // this.loadingSources = true;
+    this.$store.dispatch('sources/getSources')
+      .then(() => {
+        this.sources = this.savedSources;
+      })
+      .catch((err) => {
+        console.log(err, 'error');
+      })
+      .finally(() => {
+        console.log('terminer');
+        // this.loadingSources = false;
+      });
   },
   methods: {
     navigateTo(path) {
+      this.$root.$emit('search');
       this.$router
-        .push({ name: path })
+        .push({ name: path, params: this.params })
         .catch(() => {
           if (path === this.$route.path) {
             this.$router.go();

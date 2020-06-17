@@ -5,9 +5,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
+  },
+  computed: {
+    ...mapGetters({
+      queryParams: 'articles/params',
+    }),
+  },
+  mounted() {
+    this.$root.$on('search', () => {
+      console.log('fffff', this.$route.params);
+    });
   },
 };
 </script>

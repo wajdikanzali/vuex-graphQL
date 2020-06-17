@@ -1,0 +1,6 @@
+query sources {
+  sources {
+    id
+    name
+  }
+}
