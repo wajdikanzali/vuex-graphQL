@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .bloc {
-  margin-top: 168px;
+  margin-top: 201px;
   background: #FAF9F9;
   border-bottom: 2px solid #DFA62A;
 }

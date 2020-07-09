@@ -18,6 +18,14 @@ module.exports = {
       filename: 'index.html',
     },
   },
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: '@import "./src/assets/scss/app.scss";',
+      },
+    },
+    extract: false,
+  },
 
   chainWebpack: (config) => {
     config.module

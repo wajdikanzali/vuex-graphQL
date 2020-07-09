@@ -5,6 +5,7 @@ import SET_SOURCES from './types';
 export default {
   async getSources({ commit }) {
     try {
+      console.log('alooooo');
       const sources = await getSources(apolloClient);
       commit(SET_SOURCES, sources);
     } catch (err) {

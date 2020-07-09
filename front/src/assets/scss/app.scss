@@ -1,0 +1,49 @@
+
+
+$white:    #fff;
+$gray-100: #f8f9fa; // $color-athens-gray $color-background $color-placeholder
+$gray-300: #dee2e6; // $color-mercury $color-border-light $color-bullet
+$black:    #000;    // $color-black
+$color-gris: hsla(60, 1%, 23%, 1);
+$color-gris-infos: hsla(0, 0%, 91%, 1);
+$color-gris-clair: hsla(0, 0%, 61%, 1);
+$color-border-light: #e8e8e8;
+$color-kraft: hsla(29, 36%, 64%, 1);
+
+$spacer: 1rem;
+
+
+$spacers: (
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 3)
+);
+
+
+@mixin fontSize($size) {
+  font-size: $size; //Fallback in px
+  font-size: calculateRem($size);
+}
+
+@mixin BoxShadowHelper($level: 1){
+  @if $level == 1 {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+  }
+  @if $level == 2 {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+  }
+}
+
+
+// =============================================================================
+// Calculate rem
+// =============================================================================
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+
+  @return $remSize * 1rem;
+}

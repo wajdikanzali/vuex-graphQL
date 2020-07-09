@@ -1,7 +1,30 @@
 <template name="Header">
   <nav-bar>
     <template v-slot:left-side>
-      <p>left</p>
+      <div class="ml-0 ml-md-3 d-flex align-items-start align-items-md-center flex-column flex-md-row flex-fill">
+        <drop-down
+          v-model="params.language"
+          :default-state="params.language === null"
+          label="Langue"
+          class="px-0 col-sm-12 col-lg-3 mt-2 mt-md-0 ml-0 ml-md-2">
+          <option
+            v-for="(language, key) in LANGUAGES"
+            :key="key"
+            :value="language.value"
+            v-text="language.label" />
+        </drop-down>
+        <drop-down
+          v-model="params.language"
+          :default-state="params.language === null"
+          label="Source"
+          class="px-0 col-sm-12 col-lg-3 mt-2 mt-md-0 ml-0 ml-md-2">
+          <option
+            v-for="(language, key) in LANGUAGES"
+            :key="key"
+            :value="language.value"
+            v-text="language.label" />
+        </drop-down>
+      </div>
     </template>
     <template v-slot:right-side>
       <form
@@ -26,14 +49,18 @@
 
 <script>
 import NavBar from '@/components/molecules/NavBar.vue';
+import LANGUAGES from '@/const/languages';
+import DropDown from '@/components/atoms/DropDown';
 import { mapGetters } from 'vuex';
 
 export default {
   components: {
     NavBar,
+    DropDown,
   },
   data() {
     return {
+      LANGUAGES,
       params: {
         keyword: null,
         language: null,
@@ -46,7 +73,6 @@ export default {
       savedSources: 'sources/sources',
     }),
     isSearchDisabled() {
-      console.log('this.params', this.params);
       return Object.values(this.params).every((value) => (value === null || value === ''));
     },
   },

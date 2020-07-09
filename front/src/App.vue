@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
-    <home-header class="mb-4" />
-    <router-view />
-  </div>
+<div>
+  <home-header />
+  <router-view id="app" />
+</div>
 </template>
 
 <script>
