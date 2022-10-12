@@ -16,7 +16,7 @@
     "@babel/preset-env": "^7.10.2",
     "apollo-datasource-rest": "^0.9.2",
     "apollo-redis-cache": "^0.3.0",
-    "apollo-server": "^2.14.4",
+    "apollo-server": "^2.25.4",
     "apollo-server-express": "^2.14.4",
     "babel-plugin-module-resolver": "^4.0.0",
     "consola": "^2.13.0",
